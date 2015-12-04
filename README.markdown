@@ -1,4 +1,4 @@
-#Chromebook Keyboard backlight driver for Linux 3.x.  
+#Chromebook Keyboard backlight driver for Linux 3.x. / 4.1.x
 
 Since the newest Linux Kernel(3.12) ships with Chromebook Pixel support, both touchscreen and touchpad all work fine, but kernel doesn't include the keyboard backlight driver. So I pick the driver form [https://github.com/brocktice/pixel_linux](https://github.com/brocktice/pixel_linux) and make it standalone, easy to use.
 
