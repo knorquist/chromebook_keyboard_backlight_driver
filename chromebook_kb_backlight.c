@@ -1,5 +1,5 @@
 /*
- *  pixel_kb_backlight.c - Driver to Google Chromebook Pixel keyboard backlight devices.
+ *  chromebook_kb_backlight.c - Driver to Chromebook keyboard backlight devices.
  *
  *  Author : Benson Leung <bleung@chromium.org>
  * 
@@ -43,43 +43,50 @@ static int __init setup_keyboard_backlight(const struct dmi_system_id *id)
 		platform_device_register_simple(DEVICE_NAME,
 						-1, NULL, 0);
 	if (IS_ERR(kb_backlight_device)) {
-		pr_warn("Error registering Chromebook Pixel keyboard LEDs.\n");
+		pr_warn("Error registering Chromebook keyboard LEDs.\n");
 		kb_backlight_device = NULL;
 	}
 	return 0;
 }
 
-static struct dmi_system_id __initdata pixel_kb_backlight_dmi_table[] = {
+static struct dmi_system_id __initdata chromebook_kb_backlight_dmi_table[] = {
 	{
-		.ident = "Chromebook Pixel - Keyboard backlight",
+		.ident = "Chromebook pixel - Keyboard backlight",
 		.matches = {
 			DMI_MATCH(DMI_SYS_VENDOR, "GOOGLE"),
 			DMI_MATCH(DMI_PRODUCT_NAME, "Link"),
 		},
 		.callback = setup_keyboard_backlight,
 	},
-	{ }
+	{
+		.ident = "Dell Chromebook 13 - Keyboard backlight",
+		.matches = {
+			DMI_MATCH(DMI_SYS_VENDOR, "GOOGLE"),
+			DMI_MATCH(DMI_PRODUCT_NAME, "Lulu"),
+		},
+		.callback = setup_keyboard_backlight,
+	}, { }
 };
-MODULE_DEVICE_TABLE(dmi, pixel_kb_backlight_dmi_table);
+MODULE_DEVICE_TABLE(dmi, chromebook_kb_backlight_dmi_table);
 
-static int __init pixel_kb_backlight_init(void)
+static int __init chromebook_kb_backlight_init(void)
 {
-	if (!dmi_check_system(pixel_kb_backlight_dmi_table)) {
+	if (!dmi_check_system(chromebook_kb_backlight_dmi_table)) {
 		pr_debug("%s unsupported system.\n", __func__);
 		return -ENODEV;
 	}
 	return 0;
 }
 
-static void __exit pixel_kb_backlight_exit(void)
+static void __exit chromebook_kb_backlight_exit(void)
 {
 	if (kb_backlight_device)
 		platform_device_unregister(kb_backlight_device);
 }
 
-module_init(pixel_kb_backlight_init);
-module_exit(pixel_kb_backlight_exit);
+module_init(chromebook_kb_backlight_init);
+module_exit(chromebook_kb_backlight_exit);
 
-MODULE_DESCRIPTION("Chromebook Pixel Keyboard backlight driver");
+MODULE_DESCRIPTION("Chromebook Keyboard backlight driver");
 MODULE_AUTHOR("Benson Leung <bleung@chromium.org>");
 MODULE_LICENSE("GPL");

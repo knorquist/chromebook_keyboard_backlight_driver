@@ -1,4 +1,4 @@
-#Chromebook Pixel Keyboard backlight driver for Linux 3.x.  
+#Chromebook Keyboard backlight driver for Linux 3.x.  
 
 Since the newest Linux Kernel(3.12) ships with Chromebook Pixel support, both touchscreen and touchpad all work fine, but kernel doesn't include the keyboard backlight driver. So I pick the driver form [https://github.com/brocktice/pixel_linux](https://github.com/brocktice/pixel_linux) and make it standalone, easy to use.
 
@@ -6,7 +6,8 @@ Thanks to [brocktice](http://blog.brocktice.com/2013/03/09/running-debian-wheezy
 [DaveM](http://vger.kernel.org/~davem/chromebook_pixel_linux.txt)
 
 ##Requirements
-* Google Chromebook Pixel laptop with Linux installed.
+* Google Chromebook Pixel or Dell
+    Chromebook 13 with Linux installed.
 * Build toolchains.  
 
 
@@ -26,7 +27,7 @@ if you want the keyboard backlight works like an `backlight` then edit `pixel_kb
 	#define DEVICE_NAME "chromeos-keyboard-leds"
 	#endif
 
-Change these you the driver will act as `backlight` or `leds`.
+Change these and the driver will act as `backlight` or `leds`.
 
 Build with:
 
@@ -34,20 +35,20 @@ Build with:
 
 You will get 3 drivers:
 	chromeos_keyboard_bl.ko  	#backlight class driver
-	chromeos-keyboard-leds.ko   #leds class driver
-	pixel_kb_backlight.ko		#keyboard backlight device driver
+	chromeos_keyboard_leds.ko   #leds class driver
+	chromebook_kb_backlight.ko		#keyboard backlight device driver
 	
 Now, you can load the drivers:
 
 if you choose `backlight`
 
 	sudo insmod chromeos_keyboard_bl.ko
-	sudo insmod pixel_kb_backlight.ko
+	sudo insmod chromebook_kb_backlight.ko
 
 if you choose `leds`
 
-	sudo insmod chromeos-keyboard-leds.ko
-	sudo insmod pixel_kb_backlight.ko
+	sudo insmod chromeos_keyboard_leds.ko
+	sudo insmod chromebook_kb_backlight.ko
 
 OK, check whether the drivers load succsefully:
 
@@ -87,7 +88,7 @@ I install Ubuntu 13.10 with Linux kernel 3.12.0-031200-generic, so I do the foll
 
 	#copy our drivers to the kernel's modules dir
 	sudo cp chromeos_keyboard_bl.ko /lib/modules/3.12.0-031200-generic/
-	sudo cp pixel_kb_backlight.ko /lib/modules/3.12.0-031200-generic/
+	sudo cp chromebook_kb_backlight.ko /lib/modules/3.12.0-031200-generic/
 	
 	#tell system we have new modules
 	sudo depmod -a
@@ -95,8 +96,8 @@ I install Ubuntu 13.10 with Linux kernel 3.12.0-031200-generic, so I do the foll
 	
 then edit `/etc/modules` and add two lines:
 
-	chromeos-keyboard-leds
-	pixel_kb_backlight
+	chromeos_keyboard_leds
+	chromebook_kb_backlight
 
 Just reboot the laptop, the keyboard backlight driver will load automaticlly.
 
