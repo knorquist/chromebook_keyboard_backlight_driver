@@ -87,7 +87,7 @@ I have put a helper shell script to adjust the backlight level
 I install Ubuntu 13.10 with Linux kernel 3.12.0-031200-generic, so I do the following:
 
 	#copy our drivers to the kernel's modules dir
-	sudo cp chromeos_keyboard_bl.ko /lib/modules/3.12.0-031200-generic/
+	sudo cp chromeos_keyboard_leds.ko /lib/modules/3.12.0-031200-generic/
 	sudo cp chromebook_kb_backlight.ko /lib/modules/3.12.0-031200-generic/
 	
 	#tell system we have new modules
