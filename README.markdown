@@ -6,8 +6,8 @@ Thanks to [brocktice](http://blog.brocktice.com/2013/03/09/running-debian-wheezy
 [DaveM](http://vger.kernel.org/~davem/chromebook_pixel_linux.txt)
 
 ##Requirements
-* Google Chromebook Pixel or Dell
-    Chromebook 13 with Linux installed.
+* Google Chromebook Pixel, Toshiba Chromebook 2 (2015) (Gandof) or Dell
+    Chromebook 13 (Lulu) with Linux installed.
 * Build toolchains.  
 
 
