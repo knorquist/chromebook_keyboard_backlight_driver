@@ -73,7 +73,16 @@ static struct dmi_system_id __initdata chromebook_kb_backlight_dmi_table[] = {
 			DMI_MATCH(DMI_PRODUCT_NAME, "Lulu"),
 		},
 		.callback = setup_keyboard_backlight,
-	}, { }
+	}, 
+	{
+		.ident = "Dell Chromebook 13 - Keyboard backlight",
+		.matches = {
+			DMI_MATCH(DMI_SYS_VENDOR, "Google"),
+			DMI_MATCH(DMI_PRODUCT_NAME, "Lulu"),
+		},
+		.callback = setup_keyboard_backlight,
+	}, 
+    { }
 };
 MODULE_DEVICE_TABLE(dmi, chromebook_kb_backlight_dmi_table);
 
