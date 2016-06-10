@@ -1,0 +1,7 @@
+*.cmd
+*.ko
+.tmp_versions
+Module.symvers
+*.mod.c
+keyboard_brightness
+modules.order
