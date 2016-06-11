@@ -5,3 +5,4 @@ Module.symvers
 *.mod.c
 keyboard_brightness
 modules.order
+*.o
