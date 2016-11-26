@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #define BRIGHTNESS "/sys/class/leds/chromeos::kbd_backlight/brightness"
-#define INCREMENT 10
+#define INCREMENT 1.3
 #define MAX 100
 #define MIN 0
 
@@ -25,11 +25,13 @@ int main(int argc, char **argv) {
 	new = atoi(buf);
 
 	if(strcmp(argv[1],"up") == 0) {
-		new+=INCREMENT;
+		// have to add one, otherwise 1 * 1.3 = 1, and we never move past that.
+		// (also 0 * 1.3 = 0, so we'd never get past there either.)
+		new = new * INCREMENT + 1;
 	}
 
 	if(strcmp(argv[1],"down") == 0) {
-		new-=INCREMENT;
+		new /= INCREMENT;
 	}
 
 	if(strcmp(argv[1],"on") == 0) {
