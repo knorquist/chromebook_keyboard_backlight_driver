@@ -49,7 +49,7 @@ static int __init setup_keyboard_backlight(const struct dmi_system_id *id)
 	return 0;
 }
 
-static struct dmi_system_id __initdata chromebook_kb_backlight_dmi_table[] = {
+static struct dmi_system_id __initconst chromebook_kb_backlight_dmi_table[] = {
 	{
 		.ident = "Chromebook pixel - Keyboard backlight",
 		.matches = {
