@@ -82,6 +82,14 @@ static struct dmi_system_id __initconst chromebook_kb_backlight_dmi_table[] = {
 		},
 		.callback = setup_keyboard_backlight,
 	}, 
+	{
+		.ident = "HP Chromebook 13 G1 - Keyboard backlight",
+		.matches = {
+			DMI_MATCH(DMI_SYS_VENDOR, "Hewlett-Packard"),
+			DMI_MATCH(DMI_PRODUCT_NAME, "Chell"),
+		},
+		.callback = setup_keyboard_backlight,
+	},
     { }
 };
 MODULE_DEVICE_TABLE(dmi, chromebook_kb_backlight_dmi_table);
