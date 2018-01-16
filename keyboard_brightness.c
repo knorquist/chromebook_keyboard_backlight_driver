@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define BRIGHTNESS "/sys/class/leds/chromeos::kbd_backlight/brightness"
 #define INCREMENT 1.3
