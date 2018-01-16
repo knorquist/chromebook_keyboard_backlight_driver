@@ -5,7 +5,7 @@ Since the newest Linux Kernel (3.12) ships with Chromebook Pixel support, both t
 Thanks to [brocktice](http://blog.brocktice.com/2013/03/09/running-debian-wheezy-7-0-on-the-chromebook-pixel/)
 [DaveM](http://vger.kernel.org/~davem/chromebook_pixel_linux.txt)
 
-##Requirements
+## Requirements
 * Google Chromebook Pixel, HP Chromebook 13 (G1/Chell), Toshiba Chromebook 2 (2015) (Gandof) or Dell Chromebook 13 (Lulu) with Linux installed.
 * Build toolchains.  
 
