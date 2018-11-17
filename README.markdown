@@ -28,7 +28,9 @@ Part of the way this driver works is writing to a file called `brightness` which
 
 ## Configure Your Keyboard Shortcuts
 
-After following the instructions below to make and install the drivers, you can simply assign my helper scripts to whatever key combo you want. For elementary OS, just navigate to `System Settings > Keyboard > Shortcuts > Custom`, and then add the path to the helper scripts and your key combo.
+After following the instructions below to make and install the drivers, you can simply assign my helper scripts to whatever key combo you want. For elementary OS, just navigate to `System Settings > Keyboard > Shortcuts > Custom`, and then add the path to the helper scripts and your key combo. The process should be similar for most Ubuntu-based distros.
+
+If you want to be able to access the scripts without writing out the full path, you can add the project to your path variable. `cd` to your home directory and edit your `.bashrc` file by appending `export PATH=$PATH:/path/to/project/` to the end.
 
 
 ## Instructions
